@@ -1,0 +1,97 @@
+---
+iam_policies:
+  - octopus-elastic
+  - preproduction-octopus-au-storage
+  - octopus-config-preprod
+  - preproduction-octopus-nz-storage
+  - OctopusSQSQueueProd
+  - octopus-nz-storage
+  - octopus-au-storage
+  - OctopusSQSQueue
+  - octopus-config-google
+  - preproduction-octopus-elastic
+  - octopus-config-prod
+iam_roles: []
+s3_buckets:
+  - octopus-au-storage
+  - octopus-front
+  - octopus-nz-storage
+  - pre-production-octopus-au-storage
+  #   - preproduction-octopus-au-storage # Do not have permissions to tag this bucket
+  - preproduction-octopus-front
+  - preproduction-octopus-nz-storage
+secrets:
+  - octopus/config/prod-EruhZ5
+  - octopus/config/google-rHLeno
+  - octopus/config/preprod-yXwtZO
+  - octopus/slack-6IVdxT
+  - OctopusSentryReleaseToken-BP7w9Q
+  - OctopusPreprodDB-f1d1G6
+  - OctopusProdDB-89jMEN
+  - octopus/config/dev-UCx3Rf
+elb_arns:
+  - arn:aws:elasticloadbalancing:ap-southeast-2:532495396307:loadbalancer/app/octopus/7c40947d8579f014
+  - arn:aws:elasticloadbalancing:ap-southeast-2:532495396307:loadbalancer/app/preproduction-octopus/0ef745035027d6eb
+  - arn:aws:elasticloadbalancing:ap-southeast-2:532495396307:targetgroup/octopus/227d31290b973529
+  - arn:aws:elasticloadbalancing:ap-southeast-2:532495396307:targetgroup/preproduction-octopus/2c7f8ab8fca1db8d
+alarm_arns:
+  - "arn:aws:cloudwatch:ap-southeast-2:532495396307:alarm:Octopus ES status RED"
+  - "arn:aws:cloudwatch:ap-southeast-2:532495396307:alarm:Octopus Low Storage Space"
+  - "arn:aws:cloudwatch:ap-southeast-2:532495396307:alarm:OctopusCPUUtilizationHigh"
+elasticache_arns:
+  - arn:aws:elasticache:ap-southeast-2:532495396307:cluster:octopus
+  - arn:aws:elasticache:ap-southeast-2:532495396307:cluster:preproduction-octopus
+lambda_arns:
+  - arn:aws:lambda:ap-southeast-2:532495396307:function:Octopus-Snapshot-Restore
+ses_arns:
+  - arn:aws:ses:ap-southeast-2:532495396307:identity/octopus@hellofresh.co.nz
+  - arn:aws:ses:ap-southeast-2:532495396307:identity/octopus@hellofresh.com.au
+opensearch_arns:
+  - arn:aws:es:ap-southeast-2:532495396307:domain/octopus
+  - arn:aws:es:ap-southeast-2:532495396307:domain/preproduction-octopus
+rds_arns:
+  # DB clusters
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster:pre1production-octopus-cluster
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster:preproduction-octopus-cluster
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster:production-octopus-cluster
+  # DB instances
+  - arn:aws:rds:ap-southeast-2:532495396307:db:preproduction-octopus
+  - arn:aws:rds:ap-southeast-2:532495396307:db:production-octopus
+  - arn:aws:rds:ap-southeast-2:532495396307:db:production-octopus-replica-1
+  # DB parameter groups
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-pg:octopus-logical-replicated-group
+  - arn:aws:rds:ap-southeast-2:532495396307:pg:preproduction-octopus-20200616232939477000000002
+  - arn:aws:rds:ap-southeast-2:532495396307:pg:preproduction-octopus-20200707233318473900000001
+  - arn:aws:rds:ap-southeast-2:532495396307:pg:production-octopus-20200702052450920400000001
+  # DB subnet groups
+  - arn:aws:rds:ap-southeast-2:532495396307:subgrp:preproduction-octopus-20200616232939477100000003
+  - arn:aws:rds:ap-southeast-2:532495396307:subgrp:preproduction-octopus-20200707233318474100000003
+  - arn:aws:rds:ap-southeast-2:532495396307:subgrp:production-octopus-20200702052450923900000002
+  # DB option groups
+  - arn:aws:rds:ap-southeast-2:532495396307:og:preproduction-octopus-20200616233057611100000001
+  - arn:aws:rds:ap-southeast-2:532495396307:og:preproduction-octopus-20200707233318474100000002
+  - arn:aws:rds:ap-southeast-2:532495396307:og:production-octopus-20200702052450924400000003
+  # DB snapshots
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:pre1production-octopus-cluster-final-snapshot
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:preprod-octopus-gss-snapshot
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-15-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-16-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-17-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-18-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-19-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-20-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:pre1production-octopus-cluster-2023-08-21-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-15-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-16-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-17-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-18-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-19-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-20-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:preproduction-octopus-cluster-2023-08-21-13-11
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-15-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-16-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-17-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-18-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-19-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-20-13-06
+  - arn:aws:rds:ap-southeast-2:532495396307:cluster-snapshot:rds:production-octopus-cluster-2023-08-21-13-06
