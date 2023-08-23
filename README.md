@@ -21,6 +21,14 @@ python tag_resources.py
 ### Validate Tags
 
 To ensure that all the resources have received the expected tags, you can use the unit tests provided:
+
 ```shell
 pytest test_resource_tagging.py -s
+```
+
+### Retrieve Octopus Resources
+Execute this command to retrieve a list of Octopus resources. Please be aware that certain AWS resources are not supported by the Resource Groups Tagging API.
+
+```shell
+aws resourcegroupstaggingapi get-resources --output json | jq -r '.ResourceTagMappingList[] | select(.ResourceARN | test("octopus"; "i")) | .ResourceARN'
 ```
